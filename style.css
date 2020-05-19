@@ -1,0 +1,80 @@
+:root {
+  --card-margin: 5px;
+  --container-width: 600px;
+  --max-width: calc(var(--container-width) + (2 * 5) * var(--card-margin));
+}
+
+body {
+	margin: 0;
+	box-sizing: border-box;
+  background: #333;
+  font-family: Raleway;
+}
+
+.heading {
+  color: #fff;
+  max-width: var(--max-width);
+  margin: 30px auto;
+  text-align: center;
+}
+
+.card-container {
+  margin: 30px auto;
+  padding: 10px;
+  max-width: var(--max-width);
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 2;
+  background: #ddd;
+}
+
+.card {
+  width: calc(20% - 10px);
+  height: 90px;
+  margin: var(--card-margin);
+  object-fit: contain;    
+  object-position: 50% 50%;
+  box-shadow: 0 15px 10px -10px #33333366;
+  outline: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(.75,-0.5,0,1.75);
+  /* background: linear-gradient(45deg, #ccc, #fff); */
+}
+
+.card:hover {
+  box-shadow: 0 20px 15px -10px #33333399;
+  cursor: pointer;
+  outline: 2px solid #fff;
+  transition: all 0.3s cubic-bezier(.75,-0.5,0,1.75);
+}
+
+/*****************/
+/* Media queries */
+/*****************/
+
+@media only screen and (max-width: 650px) {
+  .card {
+    width: calc(25% - 10px);
+    height: 108px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    width: calc(33% - 10px);
+    height: 108px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .card {
+    width: calc(50% - 10px);
+    height: 110px;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  .card {
+    width: calc(100% - 10px);
+    height: 115px;
+  }
+}
