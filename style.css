@@ -5,7 +5,7 @@
 }
 
 body {
-	margin: 0;
+	margin: 20px;
 	box-sizing: border-box;
   background: #333;
   font-family: Raleway;
@@ -16,6 +16,18 @@ body {
   max-width: var(--max-width);
   margin: 30px auto;
   text-align: center;
+  background: inherit;
+  font-size: 1rem;
+}
+
+.total-images {
+  color: #fff;
+  text-align: center;
+  background: #444;
+  width: 20px;
+  margin: 0 0 5px 10px;
+  font-size: 1rem;
+  padding: 3px 6px;
 }
 
 .card-container {
@@ -32,7 +44,7 @@ body {
   width: calc(20% - 10px);
   height: 90px;
   margin: var(--card-margin);
-  object-fit: contain;    
+  object-fit: cover;    
   object-position: 50% 50%;
   box-shadow: 0 15px 10px -10px #33333366;
   outline: 2px solid transparent;
@@ -55,6 +67,18 @@ body {
   cursor: pointer;
   outline: 2px solid #fff;
   transition: all 0.3s cubic-bezier(.75,-0.5,0,1.75);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /*****************/

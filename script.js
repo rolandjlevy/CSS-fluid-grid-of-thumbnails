@@ -15,16 +15,29 @@ function createCard(counter) {
 }
 
 function getRandomImage() {
-  const randomNum = Math.floor(Math.random() * 1000);
+  const randomNum = Math.floor(Math.random() * 10000);
   return `url('https://source.unsplash.com/random/${randomNum}')`;
 }
 
-let counter = 32;
-
-while (counter > 0) {
-  createCard(counter);
-  counter--;
+function init(n) {
+  let counter = n;
+  while (counter > 0) {
+    createCard(counter);
+    counter--;
+  }
 }
+
+init(10);
+
+document.querySelector('.total-images').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const input = Number(e.target.value).toFixed(0);
+    if (input <= 0) return;
+    console.log(111)
+    container.innerHTML = "";
+    init(input);
+  }
+});
 
 function captureThenDownload(divName, outputFilename) {
   window.scrollTo(0, 0);
