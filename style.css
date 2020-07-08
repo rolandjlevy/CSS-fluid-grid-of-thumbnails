@@ -14,7 +14,7 @@ body {
 .heading {
   color: #fff;
   max-width: var(--max-width);
-  margin: 30px auto;
+  margin: 30px auto 10px auto;
   text-align: center;
   background: inherit;
   font-size: 1rem;
@@ -31,7 +31,7 @@ body {
 }
 
 .card-container {
-  margin: 30px auto;
+  margin: 10px auto 30px auto;
   padding: 10px;
   max-width: var(--max-width);
   display: flex;
@@ -106,7 +106,7 @@ input[type=number] {
   }
 }
 
-@media only screen and (max-width: 200px) {
+@media only screen and (max-width: 250px) {
   .card {
     width: calc(100% - 10px);
     height: 115px;
