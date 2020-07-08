@@ -1,5 +1,9 @@
 # Fluid grid of images
 
-- Getting images from https://unsplash.com API
-- Using media queries to adjust columns 
-- Masonry dynamic column flexbox from codepen: https://codepen.io/CAWeissen/pen/xxxQpba
+### Description
+- Using media queries to adjust columns
+
+### Links
+- [Live demo](https://css-fluid-grid-of-thumbnails.rjlevy.repl.co/)
+- [Source code](https://repl.it/@rjlevy/css-fluid-grid-of-thumbnails)
+- [Github](https://github.com/rolandjlevy/CSS-fluid-grid-of-thumbnails)
