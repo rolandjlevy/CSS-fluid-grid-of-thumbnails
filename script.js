@@ -2,6 +2,7 @@
 // const card = document.querySelector('.card-link');
 const card = document.querySelector('.card');
 const container = document.querySelector('.card-container');
+const totalImages = document.querySelector('.total-images');
 
 function createCard(counter) {
   const clonedCard = card.cloneNode(true);
@@ -33,8 +34,9 @@ function init(n) {
 }
 
 init(10);
+totalImages.value = 10;
 
-document.querySelector('.total-images').addEventListener('keypress', (e) => {
+totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const input = Number(e.target.value).toFixed(0);
     if (input <= 0) return;
