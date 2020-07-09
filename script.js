@@ -1,22 +1,27 @@
 
+// const card = document.querySelector('.card-link');
 const card = document.querySelector('.card');
 const container = document.querySelector('.card-container');
 
 function createCard(counter) {
   const clonedCard = card.cloneNode(true);
-  const imgName = 'image-' + counter;
-  clonedCard.style.backgroundImage = getRandomImage();
+  const imgId = 'image-' + counter;
+  clonedCard.id = imgId;
+  clonedCard.style.backgroundImage = `url('${getRandomImage()}`;
   clonedCard.style.display = 'block';
-  clonedCard.id = imgName;
+  // clonedCard.href = getRandomImage();
+  // clonedCard.firstChild.id = imgId;
+  // clonedCard.firstChild.style.backgroundImage = `url('${getRandomImage()}`;
+  // clonedCard.firstChild.style.display = 'block';
   // clonedCard.addEventListener('click', (e) => {
-  //   captureThenDownload(imgName, imgName + '.png')
+  //   captureThenDownload(imgId, imgId + '.png')
   // });
   container.appendChild(clonedCard);
 }
 
 function getRandomImage() {
   const randomNum = Math.floor(Math.random() * 10000);
-  return `url('https://source.unsplash.com/random/${randomNum}')`;
+  return `https://source.unsplash.com/random/${randomNum}`;
 }
 
 function init(n) {
@@ -33,7 +38,6 @@ document.querySelector('.total-images').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const input = Number(e.target.value).toFixed(0);
     if (input <= 0) return;
-    console.log(111)
     container.innerHTML = "";
     init(input);
   }
