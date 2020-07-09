@@ -44,7 +44,7 @@ body {
   width: calc(20% - 10px);
   height: 90px;
   margin: var(--card-margin);
-  object-fit: cover;    
+  object-fit: contain;    
   object-position: 50% 50%;
   box-shadow: 0 15px 10px -10px #33333366;
   outline: 2px solid transparent;

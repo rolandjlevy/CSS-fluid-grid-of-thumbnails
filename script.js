@@ -1,5 +1,3 @@
-
-// const card = document.querySelector('.card-link');
 const card = document.querySelector('.card');
 const container = document.querySelector('.card-container');
 const totalImages = document.querySelector('.total-images');
@@ -8,12 +6,13 @@ function createCard(counter) {
   const clonedCard = card.cloneNode(true);
   const imgId = 'image-' + counter;
   clonedCard.id = imgId;
-  clonedCard.style.backgroundImage = `url('${getRandomImage()}`;
+  const randomImg = getRandomImage();
+  clonedCard.style.backgroundImage = `url('${randomImg}`;
   clonedCard.style.display = 'block';
-  // clonedCard.href = getRandomImage();
-  // clonedCard.firstChild.id = imgId;
-  // clonedCard.firstChild.style.backgroundImage = `url('${getRandomImage()}`;
-  // clonedCard.firstChild.style.display = 'block';
+  clonedCard.dataset.url = randomImg;
+  clonedCard.addEventListener('click', (e) => {
+    window.open(e.target.dataset.url, '_blank');
+  });
   // clonedCard.addEventListener('click', (e) => {
   //   captureThenDownload(imgId, imgId + '.png')
   // });
