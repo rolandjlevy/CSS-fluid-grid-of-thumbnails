@@ -1,7 +1,7 @@
 :root {
   --card-margin: 5px;
-  --container-width: 600px;
-  --max-width: calc(var(--container-width) + (2 * 5) * var(--card-margin));
+  --container-width: 800px;
+  --max-width: calc(var(--container-width) + (2 * 6) * var(--card-margin));
 }
 
 body {
@@ -46,8 +46,8 @@ h2 {
 }
 
 .card {
-  width: calc(20% - 10px);
-  height: 90px;
+  width: calc(16.66% - 10px);
+  height: 108px;
   margin: var(--card-margin);
   object-fit: contain;    
   object-position: 50% 50%;
@@ -104,6 +104,13 @@ input[type=number] {
 /*****************/
 /* Media queries */
 /*****************/
+
+@media only screen and (max-width: 800px) {
+  .card {
+    width: calc(20% - 10px);
+    height: 108px;
+  }
+}
 
 @media only screen and (max-width: 650px) {
   .card {

@@ -1,10 +1,10 @@
-# CSS Fluid Grid of Images
+# CSS Fluid Grid of thumbnail Images
 
 ### Description
-- Choose any number of thumbnails, press enter
-- Random images fetched from [Unsplash API](https://unsplash.com)
-- Resize browser to see media queries adjust columns
-- Click on thumbnail to see full-size image
+- Choose any number of images, press enter
+- Each random image is fetched from [Unsplash API](https://unsplash.com)
+- Resize your browser to see the see how the media queries adjust the size of each image and the amount of columns in each row
+- Click on an image thumbnail to see full-size image
 
 ### Links
 - [Live demo](https://css-fluid-grid-of-thumbnails.rjlevy.repl.co/)

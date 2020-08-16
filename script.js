@@ -19,9 +19,6 @@ function createCard(counter) {
     });
     status.textContent = `Loaded: ${counter + 1}`;
     container.appendChild(clonedCard);
-    // clonedCard.addEventListener('click', (e) => {
-    //   captureThenDownload(imgId, imgId + '.png')
-    // });
   })
   .catch(err => {
     console.log('Error', err);
@@ -58,9 +55,6 @@ function init(n) {
   });
 }
 
-const maxImages = 25;
-init(maxImages);
-
 totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const input = Number(e.target.value).toFixed(0);
@@ -71,23 +65,5 @@ totalImages.addEventListener('keypress', (e) => {
   }
 });
 
-function captureThenDownload(divName, outputFilename) {
-  window.scrollTo(0, 0);
-  const options = {
-    logging: true, 
-    letterRendering: 1,
-    allowTaint: false, 
-    removeContainer: true,
-    useCORS: true,
-    scrollX: 0,
-    scrollY: 0
-  };
-
-  const div = document.querySelector("#" + divName);
-  html2canvas(div, options).then(canvas => {
-    const a = document.createElement('a');
-    a.href = canvas.toDataURL('image/png', 0.9);
-    a.download = outputFilename;
-    a.click();
-  });
-}
+const maxImages = 24;
+init(maxImages);
