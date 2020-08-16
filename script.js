@@ -17,7 +17,7 @@ function createCard(counter) {
     clonedCard.addEventListener('click', (e) => {
       window.open(e.target.dataset.url, '_blank');
     });
-    status.innerHTML = `Loaded: ${Number(totalImages.value) - counter + 1}`;
+    status.textContent = `Loaded: ${counter + 1}`;
     container.appendChild(clonedCard);
     // clonedCard.addEventListener('click', (e) => {
     //   captureThenDownload(imgId, imgId + '.png')
@@ -31,10 +31,11 @@ function createCard(counter) {
 
 function getRandomImage() {
   const randomNum = Math.floor(Math.random() * 10000);
+  const url = `https://source.unsplash.com/random/${randomNum}`;
   return new Promise((resolve, reject) => {
-    fetch(`https://source.unsplash.com/random/${randomNum}`)
+    fetch(url)
     .then(data => {
-      return resolve(data.url);
+      resolve(data.url);
     })
     .catch(err => {
       reject(err);
@@ -44,10 +45,9 @@ function getRandomImage() {
 
 function init(n) {
   totalImages.value = n;
-  let counter = n;
-  while (counter > 0) {
-    createCard(counter);
-    counter--;
+  let counter = 0;
+  while (counter < n) {
+    createCard(counter++);
   }
   Promise.all(promisesArray)
   .then(values => {
@@ -55,18 +55,17 @@ function init(n) {
   })
   .catch(err => { 
     status.innerHTML = err;
-    console.error(err.message);
   });
 }
 
-init(25);
+const maxImages = 25;
+init(maxImages);
 
 totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const input = Number(e.target.value).toFixed(0);
     if (input <= 0) return;
     container.innerHTML = "";
-    totalImages.value = "";
     status.classList.remove('hide');
     init(input);
   }
