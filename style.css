@@ -1,14 +1,39 @@
 :root {
   --card-margin: 5px;
+  --card-height: 110px;
   --container-width: 800px;
-  --max-width: calc(var(--container-width) + (2 * 6) * var(--card-margin));
+  --cols: 6;
+  --rows: 4;
+  --max-images: 48;
+  --max-width: calc(var(--container-width) + (2 * var(--cols)) * var(--card-margin));
+  --max-height: calc(var(--rows) * ((var(--card-height) + var(--card-margin) * 2)));
+  --light-grey: #eee;
+  --dark-grey: #666;
+  --deep-grey: #333;
 }
 
 body {
 	margin: 20px;
 	box-sizing: border-box;
-  background: #333;
+  background-color: var(--deep-grey);
   font-family: Raleway;
+  scrollbar-color: var(--dark-grey) var(--dark-grey);
+  scrollbar-width: 15px;
+}
+
+.card-container::-webkit-scrollbar {
+  width: 15px;
+}
+
+.card-container::-webkit-scrollbar-track {
+  background: black;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+  background-color: var(--dark-grey);
+  border-radius: 3px;
+  border: 2px var(--dark-grey);
+  cursor: pointer;
 }
 
 .heading {
@@ -28,7 +53,7 @@ h2 {
 .total-images {
   color: #fff;
   text-align: center;
-  background: #444;
+  background: var(--deep-grey);
   width: 3rem;
   margin: 0 0 0 10px;
   font-size: 1.5rem;
@@ -38,16 +63,18 @@ h2 {
 .card-container {
   margin: 0 auto 30px auto;
   padding: 5px;
-  max-width: var(--max-width);
+  max-width: var(--max-width);    
+  max-height: var(--max-height);
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   flex-grow: 2;
-  background: #ddd;
+  background: var(--light-grey);
 }
 
 .card {
-  width: calc(16.66% - 10px);
-  height: 108px;
+  width: calc(100% / var(--cols) - var(--card-margin) * 2);
+  height: var(--card-height);
   margin: var(--card-margin);
   object-fit: contain;    
   object-position: 50% 50%;
@@ -88,7 +115,6 @@ input[type=number] {
 .status {
   display: block;
   color: #fff;
-  /* margin: 0 auto; */
   text-align: center;
   margin: 0 0 10px 0;
   opacity: 1;
@@ -107,35 +133,30 @@ input[type=number] {
 
 @media only screen and (max-width: 800px) {
   .card {
-    width: calc(20% - 10px);
-    height: 108px;
+    --cols: 5;
   }
 }
 
 @media only screen and (max-width: 650px) {
   .card {
-    width: calc(25% - 10px);
-    height: 108px;
+    --cols: 4;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .card {
-    width: calc(33% - 10px);
-    height: 108px;
+    --cols: 3;
   }
 }
 
 @media only screen and (max-width: 350px) {
   .card {
-    width: calc(50% - 10px);
-    height: 110px;
+    --cols: 2;
   }
 }
 
 @media only screen and (max-width: 250px) {
   .card {
-    width: calc(100% - 10px);
-    height: 115px;
+    --cols: 1;
   }
 }

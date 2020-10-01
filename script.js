@@ -1,9 +1,28 @@
+const body = document.querySelector('body');
 const card = document.querySelector('.card');
 const container = document.querySelector('.card-container');
 const totalImages = document.querySelector('.total-images');
 const status = document.querySelector('.status');
 
+const maxImages = getComputedStyle(body).getPropertyValue('--max-images');
+
 const promisesArray = [];
+
+function createGrid() {
+  const max = maxImages.trim();
+  totalImages.value = max;
+  let counter = 0;
+  while (counter < max) {
+    createCard(counter++);
+  }
+  Promise.all(promisesArray)
+  .then(values => {
+    status.classList.add('hide');
+  })
+  .catch(err => { 
+    status.innerHTML = err;
+  });
+}
 
 function createCard(counter) {
   const clonedCard = card.cloneNode(true);
@@ -40,21 +59,6 @@ function getRandomImage() {
   });
 }
 
-function init(n) {
-  totalImages.value = n;
-  let counter = 0;
-  while (counter < n) {
-    createCard(counter++);
-  }
-  Promise.all(promisesArray)
-  .then(values => {
-    status.classList.add('hide');
-  })
-  .catch(err => { 
-    status.innerHTML = err;
-  });
-}
-
 totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const input = Number(e.target.value).toFixed(0);
@@ -65,5 +69,4 @@ totalImages.addEventListener('keypress', (e) => {
   }
 });
 
-const maxImages = 24;
-init(maxImages);
+createGrid();
