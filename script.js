@@ -8,7 +8,7 @@ const maxImages = getComputedStyle(body).getPropertyValue('--max-images');
 
 const promisesArray = [];
 
-function createGrid() {
+function createGrid({maxImages}) {
   const max = maxImages.trim();
   totalImages.value = max;
   let counter = 0;
@@ -61,12 +61,17 @@ function getRandomImage() {
 
 totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    const input = Number(e.target.value).toFixed(0);
-    if (input <= 0) return;
-    container.innerHTML = "";
+    totalImages.classList.remove('error');
+    const maxImages = Number(e.target.value).toFixed(0);
+    if (maxImages <= 0) {
+      totalImages.classList.add('error');
+      return;
+    }
+    container.innerHTML = '';
     status.classList.remove('hide');
-    init(input);
+    createGrid({maxImages});
   }
 });
 
-createGrid();
+createGrid({maxImages});
+totalImages.focus();

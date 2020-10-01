@@ -9,6 +9,7 @@
   --max-height: calc(var(--rows) * ((var(--card-height) + var(--card-margin) * 2)));
   --light-grey: #eee;
   --dark-grey: #666;
+  --darker-grey: #555;
   --deep-grey: #333;
 }
 
@@ -53,11 +54,32 @@ h2 {
 .total-images {
   color: #fff;
   text-align: center;
-  background: var(--deep-grey);
+  background: var(--darker-grey);
   width: 3rem;
   margin: 0 0 0 10px;
   font-size: 1.5rem;
   padding: 3px 6px;
+  border: 1px solid transparent;
+}
+
+.total-images + label {
+  position: absolute;
+  font-size: 1rem;
+  transform: translate(-50px, 45px);
+}
+
+.total-images + label::after {
+  content: '';
+}
+
+.total-images.error + label::after {
+  color: red;
+  content: 'Error';
+}
+
+.total-images.error {
+  background: #642e2e;
+  border: 1px solid red;
 }
 
 .card-container {
@@ -116,7 +138,7 @@ input[type=number] {
   display: block;
   color: #fff;
   text-align: center;
-  margin: 0 0 10px 0;
+  margin: 0 0 30px 0;
   opacity: 1;
   font-size: 1.125rem;
   transition: opacity 0.3s ease;
