@@ -17,7 +17,7 @@ function createGrid({maxImages}) {
   }
   Promise.all(promisesArray)
   .then(values => {
-    status.classList.add('hide');
+    status.classList.add('hidden');
   })
   .catch(err => { 
     status.innerHTML = err;
@@ -30,10 +30,13 @@ function createCard(counter) {
   clonedCard.id = imgId;
   const promise = getRandomImage()
   .then(randomImg => {
+    clonedCard.classList.remove('hidden');
     clonedCard.style.backgroundImage = `url('${randomImg.url}&w=250&q=50&dpr=1')`;
-    clonedCard.style.backgroundSize = 'auto';
-    clonedCard.style.display = 'initial';
     clonedCard.dataset.url = randomImg.url + "&w=1500&q=95&dpr=1";
+    // clonedCard.style.display = 'initial';
+    // clonedCard.style.backgroundSize = 'auto';
+    // clonedCard.style.backgroundOrigin = 'padding-box';
+    // clonedCard.style.backgroundPosition = 'center';
     clonedCard.addEventListener('click', (e) => {
       window.open(e.target.dataset.url, '_blank');
     });
@@ -69,7 +72,7 @@ totalImages.addEventListener('keypress', (e) => {
       return;
     }
     container.innerHTML = '';
-    status.classList.remove('hide');
+    status.classList.remove('hidden');
     createGrid({maxImages});
   }
 });
