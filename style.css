@@ -15,6 +15,10 @@
   --deep-grey: #333;
 }
 
+html {
+  touch-action: manipulation;
+}
+
 body {
 	margin: 50px;
 	box-sizing: border-box;
@@ -107,14 +111,15 @@ h2 {
   box-shadow: 0 15px 10px -10px #33333366;
   outline: 3px solid transparent;
   /* transition: box-shadow 0.3s cubic-bezier(.75,-0.5,0,1.75); */
-  transition: box-shadow 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .card:hover {
   box-shadow: 0 20px 15px -10px #33333399;
   cursor: pointer;
   outline: 3px solid #fff;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.2s ease;
+  transform: translateY(-1px);
 }
 
 .card.hidden {
@@ -174,7 +179,7 @@ footer > a {
 }
 
 footer > a:hover {
-  color: var(--light-grey);
+  color: white;
   transition: all 0.2s ease;
 }
 

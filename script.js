@@ -20,7 +20,7 @@ function createGrid({maxImages}) {
     status.classList.add('hidden');
   })
   .catch(err => { 
-    status.innerHTML = err;
+    status.textContent = err;
   });
 }
 
@@ -60,6 +60,7 @@ function getRandomImage() {
 
 totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
+    status.textContent = `Loaded:`;
     totalImages.classList.remove('error');
     const maxImages = Number(e.target.value).toFixed(0);
     if (maxImages <= 0) {
