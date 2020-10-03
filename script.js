@@ -26,17 +26,12 @@ function createGrid({maxImages}) {
 
 function createCard(counter) {
   const clonedCard = card.cloneNode(true);
-  const imgId = 'image-' + counter;
-  clonedCard.id = imgId;
+  clonedCard.id = 'image-' + counter;
   const promise = getRandomImage()
   .then(randomImg => {
     clonedCard.classList.remove('hidden');
     clonedCard.style.backgroundImage = `url('${randomImg.url}&w=250&q=50&dpr=1')`;
     clonedCard.dataset.url = randomImg.url + "&w=1500&q=95&dpr=1";
-    // clonedCard.style.display = 'initial';
-    // clonedCard.style.backgroundSize = 'auto';
-    // clonedCard.style.backgroundOrigin = 'padding-box';
-    // clonedCard.style.backgroundPosition = 'center';
     clonedCard.addEventListener('click', (e) => {
       window.open(e.target.dataset.url, '_blank');
     });
