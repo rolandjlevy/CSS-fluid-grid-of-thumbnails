@@ -33,3 +33,6 @@ function captureThenDownload(divName, outputFilename) {
 
 ### Ideas
 + Masonry dynamic column flexbox from codepen: https://codepen.io/CAWeissen/pen/xxxQpba
+
+### Unsplash documentation
++ https://unsplash.com/documentation#dynamically-resizable-images

@@ -30,9 +30,10 @@ function createCard(counter) {
   clonedCard.id = imgId;
   const promise = getRandomImage()
   .then(randomImg => {
-    clonedCard.style.backgroundImage = `url('${randomImg}')`;
-    clonedCard.style.display = 'block';
-    clonedCard.dataset.url = randomImg;
+    clonedCard.style.backgroundImage = `url('${randomImg.url}&w=250&q=50&dpr=1')`;
+    clonedCard.style.backgroundSize = 'auto';
+    clonedCard.style.display = 'initial';
+    clonedCard.dataset.url = randomImg.url + "&w=1500&q=95&dpr=1";
     clonedCard.addEventListener('click', (e) => {
       window.open(e.target.dataset.url, '_blank');
     });
@@ -51,7 +52,7 @@ function getRandomImage() {
   return new Promise((resolve, reject) => {
     fetch(url)
     .then(data => {
-      resolve(data.url);
+      resolve(data);
     })
     .catch(err => {
       reject(err);
