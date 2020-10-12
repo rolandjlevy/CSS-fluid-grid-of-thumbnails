@@ -6,6 +6,7 @@ const status = document.querySelector('.status');
 const baseUrl = 'https://source.unsplash.com/random';
 const maxImages = getComputedStyle(body).getPropertyValue('--max-images').trim();
 const promisesArray = [];
+const limit = 999;
 
 function createGrid({maxImages}) {
   totalImages.value = maxImages;
@@ -65,7 +66,7 @@ totalImages.addEventListener('keypress', (e) => {
     if (maxImages < 1) {
       totalImages.classList.add('error');
       return;
-    } else if (maxImages > 99) {
+    } else if (maxImages > limit) {
       totalImages.classList.add('overload');
       return;
     }
