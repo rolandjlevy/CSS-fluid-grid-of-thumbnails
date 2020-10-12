@@ -1,4 +1,6 @@
-# CSS Fluid Grid of thumbnail Images
+# CSS Fluid Grid of Random Images 🖼️
+
+I set myself the challenge of making a fluid grid of random images which was fully responsive on any device. All the images are generated on the fly using the Unsplash API and resized using media queries. It is made purely with JavaScript and CSS - no frameworks or libraries.
 
 ### Description
 - Choose any number of images, press enter

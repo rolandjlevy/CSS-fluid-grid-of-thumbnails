@@ -11,6 +11,8 @@ const promisesArray = [];
 function createGrid({maxImages}) {
   const max = maxImages.trim();
   totalImages.value = max;
+  totalImages.classList.add('locked');
+  totalImages.disabled = true;
   let counter = 0;
   while (counter < max) {
     createCard(counter++);
@@ -18,6 +20,8 @@ function createGrid({maxImages}) {
   Promise.all(promisesArray)
   .then(values => {
     status.classList.add('hidden');
+    totalImages.disabled = false;
+    totalImages.focus();
   })
   .catch(err => { 
     status.textContent = err;
