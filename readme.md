@@ -8,5 +8,5 @@
 
 ### Links
 - [Live demo](https://css-fluid-grid-of-thumbnails.rjlevy.repl.co/)
-- [Source code](https://github.com/rolandjlevy/css-fluid-grid-of-images)
-- [Github](https://github.com/rolandjlevy/CSS-fluid-grid-of-thumbnails)
+- [Source code](https://repl.it/@rjlevy/css-fluid-grid-of-images)
+- [Github](https://github.com/rolandjlevy/css-fluid-grid-of-images)
