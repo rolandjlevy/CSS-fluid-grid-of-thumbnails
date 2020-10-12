@@ -12,7 +12,7 @@ All the images are generated on the fly using the Unsplash API and are resized u
 - Resize your browser to see media queries adjust the size of the images and columns per row
 - Click on an image thumbnail to see full-size image
 - This is made from scratch with vanilla JavaScript and CSS - no frameworks or libraries
-- Made with just 79 lines of JavaScript! ⚡️
+- Made with just 80 lines of JavaScript! ⚡️
 
 ### Links 🔗
 - [View the live demo](https://css-fluid-grid-of-thumbnails.rjlevy.repl.co/)

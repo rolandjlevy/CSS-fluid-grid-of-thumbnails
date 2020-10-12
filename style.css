@@ -4,7 +4,7 @@
   --container-width: 1200px;
   --cols: 7;
   --rows: 4;
-  --max-images: 24;
+  --max-images: 60;
   --max-width: calc(var(--container-width) + (2 * var(--cols)) * var(--card-margin));
   --max-height: calc(var(--rows) * ((var(--card-height) + var(--card-margin) * 2)));
   --light-grey: #eee;
