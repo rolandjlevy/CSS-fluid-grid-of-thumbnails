@@ -15,6 +15,6 @@ All the images are generated on the fly using the Unsplash API and are resized u
 - Made with just 80 lines of JavaScript! ⚡️
 
 ### Links 🔗
-- [View the live demo](https://css-fluid-grid-of-thumbnails.rjlevy.repl.co/)
-- [See the source code](https://repl.it/@rjlevy/css-fluid-grid-of-images)
-- [Explore the Github repo](https://github.com/rolandjlevy/css-fluid-grid-of-images)
+- [View the live demo](https://js-fluid-grid-of-images.rjlevy.repl.co)
+- [See the source code](https://repl.it/@rjlevy/js-fluid-grid-of-images)
+- [Explore the Github repo](https://github.com/rolandjlevy/js-fluid-grid-of-images)
