@@ -3,18 +3,16 @@ const card = document.querySelector('.card');
 const container = document.querySelector('.card-container');
 const totalImages = document.querySelector('.total-images');
 const status = document.querySelector('.status');
-
-const maxImages = getComputedStyle(body).getPropertyValue('--max-images');
-
+const baseUrl = 'https://source.unsplash.com/random';
+const maxImages = getComputedStyle(body).getPropertyValue('--max-images').trim();
 const promisesArray = [];
 
 function createGrid({maxImages}) {
-  const max = maxImages.trim();
-  totalImages.value = max;
+  totalImages.value = maxImages;
   totalImages.classList.add('locked');
   totalImages.disabled = true;
   let counter = 0;
-  while (counter < max) {
+  while (counter < maxImages) {
     createCard(counter++);
   }
   Promise.all(promisesArray)
@@ -50,15 +48,11 @@ function createCard(counter) {
 
 function getRandomImage() {
   const randomNum = Math.floor(Math.random() * 10000);
-  const url = `https://source.unsplash.com/random/${randomNum}`;
+  const url = `${baseUrl}/${randomNum}`;
   return new Promise((resolve, reject) => {
     fetch(url)
-    .then(data => {
-      resolve(data);
-    })
-    .catch(err => {
-      reject(err);
-    });
+    .then(data => resolve(data))
+    .catch(err => reject(err));
   });
 }
 
@@ -66,9 +60,13 @@ totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     status.textContent = `Loaded:`;
     totalImages.classList.remove('error');
+    totalImages.classList.remove('overload');
     const maxImages = Number(e.target.value).toFixed(0);
-    if (maxImages <= 0) {
+    if (maxImages < 1) {
       totalImages.classList.add('error');
+      return;
+    } else if (maxImages > 99) {
+      totalImages.classList.add('overload');
       return;
     }
     container.innerHTML = '';

@@ -4,7 +4,7 @@
   --container-width: 1200px;
   --cols: 7;
   --rows: 4;
-  --max-images: 48;
+  --max-images: 24;
   --max-width: calc(var(--container-width) + (2 * var(--cols)) * var(--card-margin));
   --max-height: calc(var(--rows) * ((var(--card-height) + var(--card-margin) * 2)));
   --light-grey: #eee;
@@ -57,6 +57,10 @@ h2 {
   font-size: 2rem;
 }
 
+/****************/
+/* Total images */
+/****************/
+
 .total-images {
   color: #fff;
   text-align: center;
@@ -71,11 +75,18 @@ h2 {
 .total-images + label {
   position: absolute;
   font-size: 1rem;
-  transform: translate(-50px, 45px);
 }
 
 .total-images + label::after {
   content: '';
+}
+
+.total-images.error + label {
+  transform: translate(-50px, 45px);
+}
+
+.total-images.overload + label {
+  transform: translate(-70px, 45px);
 }
 
 .total-images.error + label::after {
@@ -83,7 +94,13 @@ h2 {
   content: 'Error';
 }
 
-.total-images.error {
+.total-images.overload + label::after {
+  color: red;
+  content: 'Too many!';
+}
+
+.total-images.error,
+.total-images.overload {
   background: #642e2e;
   border: 1px solid red;
 }
@@ -92,6 +109,10 @@ h2 {
   color: grey;
   pointer-events: none;
 }
+
+/********/
+/* Card */
+/********/
 
 .card-container {
   margin: 0 auto 30px auto;
