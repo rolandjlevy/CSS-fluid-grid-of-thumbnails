@@ -1,4 +1,4 @@
-# 🖼️ Fluid Grid of Random Images! 🖼️
+# 🖼️ Fluid Grid of Random Images 🖼️
 
 I set myself the challenge of making a fluid grid of random images which was fully responsive on any device 💻
 
