@@ -11,8 +11,9 @@
   --mid-light-grey: #ccc;
   --mid-grey: #aaa;
   --dark-grey: #666;
-  --darker-grey: #555;
-  --deep-grey: #333;
+  --darker-grey: #575768;
+  --deep-grey: #36363f;
+  --alert-color: rgb(225, 0, 55);
 }
 
 html {
@@ -90,23 +91,23 @@ h2 {
 }
 
 .total-images.error + label::after {
-  color: red;
+  color: var(--alert-color);
   content: 'Error';
 }
 
 .total-images.overload + label::after {
-  color: red;
+  color: var(--alert-color);
   content: 'Too many!';
 }
 
 .total-images.error,
 .total-images.overload {
   background: #642e2e;
-  border: 1px solid red;
+  border: 1px solid var(--alert-color);
 }
 
 .total-images:disabled {
-  color: grey;
+  color: #b2b2c2;
   pointer-events: none;
 }
 
