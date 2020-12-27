@@ -7,7 +7,7 @@ All the images are generated on the fly using the Unsplash API and are resized u
 ### Features 💡
 - Choose any number of images (from 1 to 999!) and press enter
 - The input field is fully validated  with error handling
-- Each random image is fetched from [Unsplash API](https://unsplash.com)
+- Each random image is fetched from [Unsplash API](https://unsplash.com/documentation)
 - All the images load into a scrollable container
 - Resize your browser to see media queries adjust the size of the images and number of columns per row
 - Click on an image to see full-size image on the Unsplash website
