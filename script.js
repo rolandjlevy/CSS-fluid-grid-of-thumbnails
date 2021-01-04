@@ -6,7 +6,9 @@ const status = document.querySelector('.status');
 const baseUrl = 'https://source.unsplash.com/random';
 const maxImages = getComputedStyle(body).getPropertyValue('--max-images').trim();
 const promisesArray = [];
-const limit = 999;
+const limit = 300;
+
+document.querySelector('#year').textContent = new Date().getFullYear();
 
 function createGrid({maxImages}) {
   totalImages.value = maxImages;
