@@ -1,14 +1,12 @@
-const body = document.querySelector('body');
-const card = document.querySelector('.card');
-const container = document.querySelector('.card-container');
-const totalImages = document.querySelector('.total-images');
-const status = document.querySelector('.status');
+const $ = (selector) => document.querySelector(selector);
+const card = $('.card');
+const totalImages = $('.total-images');
 const baseUrl = 'https://source.unsplash.com/random';
-const maxImages = getComputedStyle(body).getPropertyValue('--max-images').trim();
+const maxImages = getComputedStyle($('body')).getPropertyValue('--max-images').trim();
 const promisesArray = [];
 const limit = 300;
 
-document.querySelector('#year').textContent = new Date().getFullYear();
+$('#year').textContent = new Date().getFullYear();
 
 function createGrid({maxImages}) {
   totalImages.value = maxImages;
@@ -20,12 +18,12 @@ function createGrid({maxImages}) {
   }
   Promise.all(promisesArray)
   .then(values => {
-    status.classList.add('hidden');
+    $('.status').classList.add('hidden');
     totalImages.disabled = false;
     totalImages.focus();
   })
   .catch(err => { 
-    status.textContent = err;
+    $('.status').textContent = err;
   });
 }
 
@@ -40,8 +38,8 @@ function createCard(counter) {
     clonedCard.addEventListener('click', (e) => {
       window.open(e.target.dataset.url, '_blank');
     });
-    status.textContent = `Loaded: ${counter + 1}`;
-    container.appendChild(clonedCard);
+    $('.status').textContent = `Loaded: ${counter + 1}`;
+    $('.card-container').appendChild(clonedCard);
   })
   .catch(err => {
     console.log('Error', err);
@@ -61,7 +59,7 @@ function getRandomImage() {
 
 totalImages.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
-    status.textContent = `Loaded:`;
+    $('.status').textContent = `Loaded:`;
     totalImages.classList.remove('error');
     totalImages.classList.remove('overload');
     const maxImages = Number(e.target.value).toFixed(0);
@@ -72,8 +70,8 @@ totalImages.addEventListener('keypress', (e) => {
       totalImages.classList.add('overload');
       return;
     }
-    container.innerHTML = '';
-    status.classList.remove('hidden');
+    $('.card-container').innerHTML = '';
+    $('.status').classList.remove('hidden');
     createGrid({maxImages});
   }
 });
